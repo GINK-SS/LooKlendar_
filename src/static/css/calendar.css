@@ -1,0 +1,298 @@
+html,
+body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+    float: none;
+}
+
+/* ======== Calendar ======== */
+.my-calendar {
+    width: 98%;
+    margin: 1%;
+    padding: 0 10px;
+    text-align: center;
+    font-weight: 800;
+    cursor: default;
+}
+
+.my-calendar .calendar-box {
+    float: right;
+    width: 100%;
+}
+
+.ctr-box {
+    padding: 16px 16px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #0984e3;
+    line-height: 2em;
+}
+
+.ctr-box .btn-cal {
+    position: relative;
+    text-align: center;
+    float: left;
+    width: 2em;
+    height: 2em;
+    border-radius: 10%;
+    margin-top: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    background: #74b9ff;
+    color:white;
+}
+
+.btn-cal:hover{
+    color: gray;
+}
+
+.ctr-box .btn-cal:after {
+    content: '<';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 1.6em;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.ctr-box .btn-cal.next {
+    float: right;
+}
+
+.ctr-box .btn-cal.next:after {
+    content: '>';
+}
+
+.cal_today_btn{
+    color: white;
+    background: #74b9ff;
+    border-radius: 5px;
+    border : 0;
+    font-size: 1em;
+    height: 1.5em;
+    position: absolute;
+    left: 35%;
+    margin-top: 5px;
+    transition: .5s all;
+}
+.cal_today_btn:hover{
+    background: #0984e3;
+}
+
+.cal-head{
+    width:100%;
+    color: gray;
+    display: inline-flex;
+}
+.cal-head span{
+    margin: 0 auto;
+}
+/* grid layout */
+.cal-table {
+    width: 100%;
+}
+.cal-table tr{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    grid-auto-rows: minmax(120px,auto);
+    grid-gap: 5px;
+}
+
+/* ------ look 상태 day 박스들 css */
+.day_look{
+    background: white !important;
+    color:rgb(147,112,216) !important;
+    border: solid 2px rgb(147,112,216) !important;
+    padding-top: 5px;
+    position: relative;
+    cursor: pointer;
+    margin-top: 10px;
+    text-align: center;
+    background: transparent;
+    border-radius: 5px;
+    -webkit-transition: all .7s ease;
+    transition: all 0.7s ease;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+.day_look:hover{
+    color:white !important;
+    background: rgb(147,112,216) !important;
+    border: 2px solid white !important;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+}
+
+/* ---------- calendar 상태 css */
+.cal-table td.day {
+    padding-top: 5px;
+    position: relative;
+    cursor: pointer;
+    margin-top: 10px;
+    text-align: center;
+    background-color: transparent;
+    color: #0984e3;
+    background: transparent;
+    border: 2px solid #0984e3;
+    border-radius: 5px;
+    -webkit-transition: all .7s ease;
+    transition: all 0.7s ease;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+.cal-table td.day:hover{
+    color:white;
+    background: #0984e3;
+    border: 2px solid white;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+}
+.cal-table td.day:active{
+    transform: translate(2px, 2px)
+}
+
+
+/* 오늘 날짜 css */
+.cal-table td.today {
+    background: beige !important;
+}
+
+/* 선택한 날짜 css */
+.cal-table td.day-active {
+    background: #fff1f1;
+}
+
+/* .calendar_plus_button css */
+.cal-table td button{ 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin-right: auto;
+    margin-top: 8px;
+    border-radius: 50%;
+    color: #0984e3;
+    background: white;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0;
+    font-weight: 700;
+    font-size: 2rem;
+    transition: all 0.5s;
+    opacity: 0.9;
+    display:none;
+}
+
+
+/* 불러온 일정들 css */
+.cal_calendar{
+    border-radius: 8px;
+    font-size: 0.8em;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    margin:6px;
+    padding:5px;
+    box-shadow: gray;
+}
+.cal_calendar img{
+    position: relative;    
+    width: 100%;
+    padding: 3%;
+}
+
+/* -------------- 클릭한 날짜 모달 css ---------------- */
+.cal_modal_background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #000;
+    background: fade(#000, 85%);
+    z-index: 998;
+    display: none;
+    opacity:0.9;
+    transition: all 0.5s ease;
+}
+
+.clicked-date{
+    height: 70%;
+    width: 50%;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top:0; left:0; bottom:0; right:0;
+    z-index: 999;
+    background: #ddd;
+    border-radius: 25px;
+    padding: 25px;
+}
+
+
+.clicked-date .cal-day {
+    font-size: 1.5em;
+}
+
+.clicked-date .cal-date {
+    font-size: 5em;
+}
+
+.cal_modal_exit{
+    width: 2em;
+    height: 2em;
+    color: black;
+    font-size: 2em;
+    border-radius: 50%;
+    position: absolute;
+    top:5px;
+    right: 5px;
+    text-align: center;
+    line-height: 2em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.cal_modal_exit:hover{
+    background:#74b9ff;
+}
+
+/* ------------ 모달창에 있는 일정들 css ---------- */
+.cal_modal_event{
+    border-radius: 8px;
+    font-size: 1.1em;
+    color: black;
+    font-weight: 600;
+    margin:6px;
+    padding:5px;
+    box-shadow: gray;
+}
+.cal_modal_event img{
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
+}
+.cal_modal_event img:hover{
+    background: #74b9ff;
+}
+#event_image{
+    width: 100px;
+}

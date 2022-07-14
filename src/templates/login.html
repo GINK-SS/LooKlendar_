@@ -1,0 +1,47 @@
+<body>
+    <div class="login">
+        <h1><img src="../static/files/home.png" class="home" >Login Page</h1>
+        <div class="login_form">
+            <div class="login_box">
+                <div>
+                    <input type="text" id="login_id"  placeholder="ID" class="text" autocomplete="off">
+                </div>
+                <div>
+                    <input type="password" id="login_pw" placeholder="PASSWORD" class="text" autocomplete="off">
+                </div>
+                <button id="login_btn" class="btn">LOGIN</button>
+                </br>
+            </br>
+            <div class="atag">
+                <span>No id ? </span>
+                <a href="/signup" class="signup_btn">회원가입</a>
+                <span>forgot id ? </span>
+                <a id="find_id_btn" class="signup_btn">아이디 찾기</a>
+            </div>
+            </div>
+        </div>
+        <!------------------------ 비밀번호 변경 모달 -------------------------->
+        <div id="find_modal_background" class="modal_background">
+            <div class="find_modal_box modal_box">
+                <span id="find_modal_exit" class="modal_exit">X</span>
+                <div class="modal_form">
+                    <div>
+                        * 이름 :
+                        <input type="text" placeholder="이름 입력" id="find_name" class="text" autocomplete="off" maxlength="30">
+                    </div>
+                    <div>
+                        * E-MAIL : 
+                        <input type="text" placeholder="이메일 입력" id="find_email" class="text" autocomplete="off" maxlength="30">
+                    </div>
+                    <button id="find_button" class="modify_btn">아이디 찾기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<link rel="stylesheet" href="../static/css/login.css" type="text/css">
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../static/js/login.js"></script>
+

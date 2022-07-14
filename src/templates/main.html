@@ -1,0 +1,155 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+  <div class="line"></div>
+  <div class="top_bar">
+
+    <div class="side_menu">
+      <div class="burger_box">
+        <div class="menu-icon-container">
+          <a href="#" class="menu-icon js-menu_toggle closed">
+            <span class="menu-icon_box">
+              <span class="menu-icon_line menu-icon_line--1"></span>
+              <span class="menu-icon_line menu-icon_line--2"></span>
+              <span class="menu-icon_line menu-icon_line--3"></span>
+            </span>
+          </a>
+        </div>
+      </div>
+      <div class="menu_container">
+        <div class="menu_line"></div>
+        <h2 class="menu_title">LooKlendar</h2>
+        <div class="menu_line"></div>
+        <ul class="menu_list">
+          <li class="menu_list_item"><a onclick="go_mypage()">마이페이지</a></li>
+          <div class="menu_line"></div>
+          <li class="menu_list_item"><a href="/">캘린더</a></li>
+          <li class="menu_list_item"><a href="/dailylook">데일리룩 게시판</a></li>
+        </ul>
+        <div class="menu_line"></div>
+      </div>
+    </div>
+
+    <div class="top_date_button">
+      
+    </div>
+
+    <span class="top_title">LooKlendar</span>
+
+    <div class="top_toggle">
+      <div id="top_toggle_button">
+        <input type="checkbox" class="checkbox" onchange="calendar_mode()">
+        <div class="circle"></div>
+        <div class="layer"></div>
+      </div>
+    </div>
+
+    <div class="top_login">
+      <a class="before_login" href="/login">login</a>
+      <div class="success_login">
+        <img src="../static/image/user_image1.jpg" id="user_image">
+        <span id="user_info"></span>
+        <div class="user_div">
+          <div><button id="mypage" class="user_div_btn" onclick="go_mypage()">마이페이지</button></div>
+          <div><button id="logout" class="user_div_btn">로그아웃</button></div>
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+  <div class="line"></div>
+
+  <div class="calendar">
+    
+    <div class="container">
+      <div class="my-calendar clearfix">
+        <!-- /////////////// 선택한 날짜 일정 모달 ///////////// -->
+        <div class="cal_modal_background">
+          <div class="clicked-date">
+            <span class="cal_modal_exit">X</span>
+            <div class="cal-day"></div>
+            <div class="cal-date"></div>
+            <div class="cal_modal_event_box"></div>
+          </div>
+        </div>
+        
+        <div class="calendar-box">
+          <div class="ctr-box clearfix">
+            <button type="button" title="prev" class="btn-cal prev">
+            </button>
+            <button class="cal_today_btn">Today</button>
+            <span class="cal-month"></span>
+            <span class="cal-year"></span>
+            <button type="button" title="next" class="btn-cal next">
+            </button>
+          </div>
+          <div class="cal-head">
+            <span>일</span>
+            <span>월</span>
+            <span>화</span>
+            <span>수</span>
+            <span>목</span>
+            <span>금</span>
+            <span>토</span>
+          </div>
+          <table class="cal-table">
+            <tbody class="cal-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- /////////// 일정 입력 모달창 /////////// -->
+    <div class="modal_background">
+      <div class="modal_box">
+        <span class="modal_exit">X</span>
+        <div class="modal_form">
+          <select name="modal_color" class="modal_color" onchange="select_change(this)">
+            <option value="red" style="background: #d63031"></option>
+            <option value="orange" style="background: #ff9f43"></option>
+            <option value="yellow" style="background: #ffeaa7"></option>
+            <option value="green" style="background:#3ed34b"></option>
+            <option value="blue" style="background: #2969e0"></option>
+            <option value="purple" style="background: #a29bfe"></option>
+            <option value="gray" style="background: #636e72"></option>
+          </select>
+          <select name="modal" id="modal_select" onchange="modal_change(this);">
+            <option value="modal_select_calendar" id="m_s_c">일정</option>
+            <option value="modal_select_look" id="m_s_l" disabled>데일리룩</option>
+          </select><br>
+          <input type="text" class="modal_title modal_text" placeholder="제목 입력" maxlength="45"><br>
+          <input type="date" class="modal_start_time modal_text" placeholder="날짜 입력"><br>
+          <input type="text" class="modal_place modal_text" placeholder="위치 추가" maxlength="45"><br>
+          <p class="modal_num" value="-1" style="display: none;"></p>
+          <input type="text" class="modal_outer modal_text" placeholder="아우터">
+          <input type="text" class="modal_top modal_text" placeholder="상의">
+          <input type="text" class="modal_bot modal_text" placeholder="하의">
+          <input type="text" class="modal_shoes modal_text" placeholder="신발">
+          <input type="text" class="modal_acc modal_text" placeholder="악세서리">
+          
+          <input type="file" class="modal_image" accept="image/*" onchange="image_load(event);" value="../static/image/look_default.png"/>
+          <div id="modal_image_container"></div>
+
+          <button id="modal_submit">저장</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+<link rel="stylesheet" type="text/css" href="../static/css/calendar.css">
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../static/js/main.js"></script>
+<script type="text/javascript" src="../static/js/calendar.js"></script>
+
+</html>

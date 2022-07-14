@@ -1,0 +1,56 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <div class="signup">
+        <h1><img src="../static/files/board.png" class="home" width="50px" height="50px">데일리룩 글쓰기</h1>
+        <div class="signup_form">
+            <div class="signup_box">
+                <div>
+                    * 제목 :
+                    <input type="text" placeholder="제목 입력" id="write_title" class="text" autocomplete="off" maxlength="45">
+                </div>
+                <div>
+                    * 내용 :
+                    <textarea cols="10" placeholder="내용 입력" id="write_text" class="text text2" autocomplete="off"></textarea>
+                </div>
+                <div>
+                    아우터 :
+                    <input type="text" placeholder="아우터 입력" id="write_outer" class="text" autocomplete="off" maxlength="45">
+                </div>
+                <div>
+                    * 상의 :
+                    <input type="text" placeholder="상의 입력" id="write_top" class="text" autocomplete="off" maxlength="45">
+                </div>
+                <div>
+                    * 하의 :
+                    <input type="text" placeholder="하의 입력" id="write_bot" class="text" autocomplete="off" maxlength="45">
+                </div>
+                <div>
+                    * 신발 :
+                    <input type="text" placeholder="신발 입력" id="write_shoes" class="text" autocomplete="off" maxlength="45">
+                </div>
+                <div>
+                    악세서리 :
+                    <input type="text" placeholder="악세서리 입력" id="write_acc" class="text" autocomplete="off" maxlength="45">
+                </div>
+                <input type="file" class="modal_image" id="write_photo" accept="image/*"
+                        onchange="image_load(event);" value="../files/user_image1.jpg"/>          
+                    <div id="modal_image_container"></div>
+                <button id="write_botton" class="signup_btn">저장</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="../static/css/write.css">
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="../static/js/write.js"></script>
+</html>
